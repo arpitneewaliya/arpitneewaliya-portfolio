@@ -2,19 +2,28 @@
 
 import { motion } from "framer-motion";
 import { RiNextjsFill } from "react-icons/ri";
-import { SiTypescript, SiReact, SiTailwindcss, SiNodedotjs, SiPostgresql } from "react-icons/si";
-import { VscTerminal } from "react-icons/vsc";
-
+import { SiTypescript, SiReact, SiTailwindcss, SiNodedotjs, SiPostgresql, SiExpress, SiMongodb, SiClaude } from "react-icons/si";
+import { IoLogoJavascript } from "react-icons/io";
+import { FaHtml5, FaCss3Alt, FaLinux, FaGitAlt, FaAws, FaDocker } from "react-icons/fa";
 
 export function TechStack() {
   const technologies = [
-    { name: "Next.js", icon: RiNextjsFill },
-    { name: "TypeScript", icon: SiTypescript },
+    { name: "Linux", icon: FaLinux },
+    { name: "Git", icon: FaGitAlt },
+    { name: "AWS", icon: FaAws },
+    { name: "Docker", icon: FaDocker },
     { name: "React", icon: SiReact },
+    { name: "Express.js", icon: SiExpress },
+    { name: "MongoDB", icon: SiMongodb },
+    { name: "TypeScript", icon: SiTypescript },
+    { name: "Next.js", icon: RiNextjsFill },
     { name: "Tailwind CSS", icon: SiTailwindcss },
     { name: "Node.js", icon: SiNodedotjs },
     { name: "PostgreSQL", icon: SiPostgresql },
-    { name: "System Design", icon: VscTerminal },
+    { name: "Claude", icon: SiClaude },
+    { name: "HTML", icon: FaHtml5 },
+    { name: "CSS", icon: FaCss3Alt },
+    { name: "JavaScript", icon: IoLogoJavascript },
   ];
 
   return (
@@ -28,7 +37,7 @@ export function TechStack() {
           className="mb-16"
         >
           <span className="text-xs tracking-[0.2em] text-gray-500 mb-4 block uppercase">Tech Stack</span>
-          <h2 className="text-3xl md:text-4xl font-bold">Tools & Architecture</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Tools & Technologies</h2>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

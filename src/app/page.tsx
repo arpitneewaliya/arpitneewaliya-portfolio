@@ -14,7 +14,7 @@ export default function Home() {
       <TechStack />
 
       <footer className="py-8 text-center border-t border-white/5 bg-[#050505] text-xs tracking-widest text-gray-600 uppercase mt-24">
-        © {new Date().getFullYear()} Monolith Editorial. All Rights Reserved.
+        © {new Date().getFullYear()} Arpit Neewaliya. All Rights Reserved.
       </footer>
     </main>
   );
