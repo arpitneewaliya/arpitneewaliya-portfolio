@@ -1,17 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Blocks, Code2, Database, Layout, Server, Sparkles, Terminal } from "lucide-react";
+import { RiNextjsFill } from "react-icons/ri";
+import { SiTypescript, SiReact, SiTailwindcss, SiNodedotjs, SiPostgresql } from "react-icons/si";
+import { VscTerminal } from "react-icons/vsc";
+
 
 export function TechStack() {
   const technologies = [
-    { name: "Next.js 15", icon: Layout },
-    { name: "TypeScript", icon: Code2 },
-    { name: "React", icon: Blocks },
-    { name: "Tailwind CSS", icon: Sparkles },
-    { name: "Node.js", icon: Server },
-    { name: "PostgreSQL", icon: Database },
-    { name: "System Design", icon: Terminal },
+    { name: "Next.js", icon: RiNextjsFill },
+    { name: "TypeScript", icon: SiTypescript },
+    { name: "React", icon: SiReact },
+    { name: "Tailwind CSS", icon: SiTailwindcss },
+    { name: "Node.js", icon: SiNodedotjs },
+    { name: "PostgreSQL", icon: SiPostgresql },
+    { name: "System Design", icon: VscTerminal },
   ];
 
   return (
@@ -38,7 +41,7 @@ export function TechStack() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col items-center justify-center p-8 border border-white/5 bg-white/5 rounded-2xl hover:bg-white/10 hover:border-white/10 transition-all group"
             >
-              <tech.icon className="w-10 h-10 mb-4 text-gray-500 group-hover:text-white transition-colors" strokeWidth={1.5} />
+              <tech.icon className="w-10 h-10 mb-4 text-gray-500 group-hover:text-white transition-colors" />
               <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors tracking-wide">
                 {tech.name}
               </span>

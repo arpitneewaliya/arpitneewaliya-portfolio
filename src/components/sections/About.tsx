@@ -22,7 +22,7 @@ export function About() {
             className="relative aspect-[4/5] overflow-hidden rounded-sm bg-zinc-900"
           >
             <Image
-              src="/images/portrait.png"
+              src="/images/photo.png"
               alt="Arpit Neewaliya"
               fill
               className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
@@ -44,9 +44,6 @@ export function About() {
                 </p>
                 <p>
                   I operate under the philosophy that code should be as clean and expressive as a well-designed publication. Over my career, I've collaborated with global startups and enterprise teams to build robust, enduring digital experiences.
-                </p>
-                <p>
-                  My focus is on <span className="text-white font-medium">The Monolith</span>—systems that are built to last, aesthetically uncompromising, and engineered with precision.
                 </p>
               </div>
             </div>

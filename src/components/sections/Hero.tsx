@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -33,9 +34,10 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.4 }}
           className="text-lg md:text-2xl text-gray-400 max-w-2xl"
         >
-          Crafting high-performance digital architectures with a focus on{" "}
-          <span className="text-white">geometric precision</span> and{" "}
-          <span className="text-white">editorial clarity.</span>
+          Full-stack developer committed to building fast,
+          {" "}
+          <span className="text-white">maintainable code</span> and{" "}
+          <span className="text-white">seamless user experiences.</span>
         </motion.p>
 
         <motion.div
@@ -43,12 +45,12 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
         >
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="rounded-full bg-white text-black hover:bg-gray-200 px-8 h-14 text-base mt-4 group"
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            View My Work
+            <Link href="/projects">View My Work</Link>
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.div>
