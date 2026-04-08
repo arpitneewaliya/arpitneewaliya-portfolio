@@ -14,7 +14,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-24 px-6 border-t border-white/5 bg-black">
+    <section id="about" className="py-24 px-6 border-t border-white/5 bg-transparent">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div

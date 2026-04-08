@@ -36,15 +36,14 @@ export function Navbar() {
         <Link href="/" className="text-xl font-bold tracking-tight">
           ARPIT NEEWALIYA<span className="text-gray-400">.</span>
         </Link>
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex items-center gap-2 p-1.5 bg-white/5 border border-white/10 rounded-full backdrop-blur-md shadow-lg shadow-black/20">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm text-gray-300 hover:text-white transition-colors relative group"
+              className="px-5 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
             >
               {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all group-hover:w-full"></span>
             </Link>
           ))}
         </nav>
