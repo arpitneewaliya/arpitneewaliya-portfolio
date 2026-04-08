@@ -58,22 +58,22 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 border-t border-white/5 bg-black">
+    <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/5 bg-transparent">
       <div className="max-w-6xl mx-auto">
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            transition={{ duration: 0.6 }}
-           className="text-center mb-16"
+           className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">Get in Touch</h2>
-          <p className="text-gray-400 max-w-xl mx-auto text-lg">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">Get in Touch</h2>
+          <p className="text-gray-400 max-w-xl mx-auto text-base sm:text-lg px-2">
             Whether you have a specific project in mind or just want to say hi, my inbox is always open. Let's build something enduring together.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="grid md:grid-cols-2 gap-10 sm:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -81,7 +81,7 @@ export function Contact() {
             transition={{ duration: 0.8 }}
           >
             <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-gray-400">Full Name</Label>
                   <Input 
@@ -135,7 +135,7 @@ export function Contact() {
             transition={{ duration: 0.8 }}
             className="flex flex-col justify-between"
           >
-            <div className="bg-white/5 border border-white/10 p-8 rounded-2xl flex flex-col items-center text-center space-y-4 mb-8">
+            <div className="bg-white/5 border border-white/10 p-6 sm:p-8 rounded-2xl flex flex-col items-center text-center space-y-4 mb-6 sm:mb-8">
               <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center text-white mb-2">
                 <Send className="w-6 h-6" />
               </div>
@@ -150,7 +150,7 @@ export function Contact() {
                 { name: "LinkedIn", icon: FaLinkedin, link: "https://www.linkedin.com/in/arpitneewaliya/" },
                 { name: "Instagram", icon: FaInstagram, link: "https://www.instagram.com/arpit.neewaliya" },
               ].map(social => (
-                <a key={social.name} href={social.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center p-6 border border-white/10 bg-white/5 rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all group">
+                <a key={social.name} href={social.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center p-4 sm:p-6 border border-white/10 bg-white/5 rounded-xl sm:rounded-2xl hover:bg-white/10 hover:border-white/20 transition-all group">
                   <social.icon className="w-5 h-5 text-gray-400 group-hover:text-white mr-3" />
                   <span className="text-sm font-medium text-gray-300 group-hover:text-white">{social.name}</span>
                 </a>

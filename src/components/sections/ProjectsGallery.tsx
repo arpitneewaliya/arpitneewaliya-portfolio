@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    title: "Aether OS",
-    description: "A minimal and functional operating system design concept focused on simplicity and speed.",
-    tags: ["CONCEPT", "UI/UX DESIGN", "2024"],
-    image: "/images/project_aether.png",
+    title: "Cerebral Earth",
+    description: "A mapified news platform where you can visualize all the major events live on a world map.",
+    tags: ["Web Application", "React", "API", "2026"],
+    image: "/images/cerebral_earth.png",
     link: "#",
   },
   {
@@ -32,7 +32,7 @@ const projects = [
 
 export function ProjectsGallery() {
   return (
-    <section id="projects" className="py-24 px-6 border-t border-white/5 bg-[#0a0a0a]">
+    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/5 bg-transparent">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,13 +41,12 @@ export function ProjectsGallery() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <span className="text-xs tracking-[0.2em] text-gray-500 mb-4 block uppercase">(01) Selected Projects</span>
-          <h2 className="text-4xl md:text-5xl font-bold">The Gallery of<br />Digital Intent.</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">My Projects</h2>
         </motion.div>
 
-        <div className="space-y-32">
+        <div className="space-y-16 sm:space-y-32">
           {projects.map((project, index) => (
-            <div key={index} className="grid md:grid-cols-12 gap-8 items-center group">
+            <div key={index} className="grid md:grid-cols-12 gap-6 sm:gap-8 items-center group">
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +71,7 @@ export function ProjectsGallery() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className={`md:col-span-5 ${index % 2 !== 0 ? 'md:order-1' : ''}`}
               >
-                <div className="space-y-6 md:px-8">
+                <div className="space-y-4 sm:space-y-6 md:px-8">
                   <div className="flex gap-2 flex-wrap mb-4">
                     {project.tags.map(tag => (
                       <span key={tag} className="text-[10px] tracking-widest px-2 py-1 border border-white/20 rounded-full text-gray-300">
@@ -80,8 +79,8 @@ export function ProjectsGallery() {
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-3xl font-bold">{project.title}</h3>
-                  <p className="text-gray-400 leading-relaxed text-lg">{project.description}</p>
+                  <h3 className="text-2xl sm:text-3xl font-bold">{project.title}</h3>
+                  <p className="text-gray-400 leading-relaxed text-base sm:text-lg">{project.description}</p>
                   
                   <div className="pt-4 flex items-center space-x-6">
                     <Link href={project.link}>

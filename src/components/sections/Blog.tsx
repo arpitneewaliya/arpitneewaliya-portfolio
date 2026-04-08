@@ -30,25 +30,25 @@ const posts = [
 
 export function Blog() {
   return (
-    <section id="blog" className="py-24 px-6 border-t border-white/5 bg-[#050505]">
+    <section id="blog" className="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/5 bg-transparent">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 flex justify-between items-end"
+          className="mb-10 sm:mb-16 flex flex-col sm:flex-row justify-between sm:items-end gap-4"
         >
           <div>
             <span className="text-xs tracking-[0.2em] text-gray-500 mb-4 block uppercase">Writing</span>
-            <h2 className="text-3xl md:text-4xl font-bold">Recent Writings</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Recent Writings</h2>
           </div>
-          <Link href="#" className="hidden md:flex items-center text-sm font-medium hover:text-gray-300 transition-colors uppercase tracking-widest">
+          <Link href="#" className="hidden sm:flex items-center text-sm font-medium hover:text-gray-300 transition-colors uppercase tracking-widest">
             All Posts <ArrowUpRight className="ml-1 w-4 h-4" />
           </Link>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {posts.map((post, index) => (
             <motion.div
               key={index}
@@ -63,7 +63,7 @@ export function Blog() {
                 <span className="w-1 h-1 rounded-full bg-gray-700"></span>
                 <span>{post.readTime}</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4 group-hover:underline decoration-1 underline-offset-4">{post.title}</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 group-hover:underline decoration-1 underline-offset-4">{post.title}</h3>
               <p className="text-gray-400 mb-6 flex-grow">{post.description}</p>
               <div className="pt-4 mt-auto border-t border-white/10 flex items-center text-sm font-medium text-gray-300">
                 Read More

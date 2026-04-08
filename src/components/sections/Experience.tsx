@@ -6,21 +6,21 @@ const experiences = [
   {
     role: "Founding Engineer",
     company: "Monolith Digital",
-    period: "2021 — Present",
+    period: "2026 — Present",
     description: "Leading the core engineering team. Architecting modular UI systems that bridge the gap between complex data and simple user experiences.",
     tags: ["DESIGN SYSTEMS", "REACT", "NODE.JS"],
   },
   {
-    role: "Senior Interaction Designer",
+    role: "Full Stack Developer Intern",
     company: "Aether Media Group",
-    period: "2019 — 2021",
+    period: "2024 — 2026",
     description: "Engineered scalable motion language and transition models for high-fidelity interactive media platforms.",
     tags: ["MOTION DESIGN", "USER EXPERIENCE"],
   },
   {
-    role: "Interface Developer",
+    role: "Frontend Developer Intern",
     company: "Stark Editorial Lab",
-    period: "2016 — 2019",
+    period: "2024-2025",
     description: "Developed procedural UI components and frontend microservices for an architectural publication.",
     tags: ["FRONT-END", "PROCEDURAL UI"],
   },
@@ -28,8 +28,8 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 px-6 border-t border-white/5 bg-black">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-16">
+    <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/5 bg-transparent">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-8 sm:gap-16">
         <div className="md:col-span-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -38,15 +38,15 @@ export function Experience() {
             transition={{ duration: 0.6 }}
             className="sticky top-32"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Experience <span className="text-gray-500 font-serif italic">&</span><br/>Narratives.</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Experience <span className="text-gray-500 font-serif italic">&</span><br/>Narratives.</h2>
             <p className="text-gray-400">A chronological journey through professional challenges resolved.</p>
           </motion.div>
         </div>
 
-        <div className="md:col-span-8 space-y-16">
+        <div className="md:col-span-8 space-y-10 sm:space-y-16">
           <h3 className="text-sm uppercase tracking-widest text-gray-500 border-b border-white/10 pb-4">Professional Path</h3>
           
-          <div className="space-y-16 relative">
+          <div className="space-y-10 sm:space-y-16 relative">
             {/* Timeline line */}
             <div className="absolute left-0 top-2 bottom-0 w-px bg-white/10 hidden md:block" />
             
@@ -63,7 +63,7 @@ export function Experience() {
                 <div className="absolute left-[-4px] top-1.5 w-2 h-2 rounded-full border border-gray-500 bg-black group-hover:bg-white group-hover:border-white transition-colors hidden md:block" />
                 
                 <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
-                  <h4 className="text-2xl font-bold text-white">{exp.role}</h4>
+                  <h4 className="text-xl sm:text-2xl font-bold text-white">{exp.role}</h4>
                   <span className="text-sm text-gray-500 tracking-wider uppercase mt-1 md:mt-0">{exp.period}</span>
                 </div>
                 

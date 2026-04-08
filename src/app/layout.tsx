@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
+import DotGrid from "@/components/DotGrid";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,21 @@ export default function RootLayout({
       className={`dark ${geistSans.variable} ${geistMono.variable} ${inter.variable} h-full antialiased`}
       style={{ scrollBehavior: 'smooth' }}
     >
-      <body className="min-h-full flex flex-col font-sans bg-black text-white">{children}</body>
+      <body className="min-h-full flex flex-col font-sans bg-black text-white overflow-x-hidden">
+        <div className="fixed inset-0 z-0 bg-black">
+          <DotGrid
+            className="opacity-60"
+            baseColor="#363738"
+            activeColor="#ffffff"
+            gap={10}
+            dotSize={2.5}
+            proximity={100}
+          />
+        </div>
+        <div className="relative z-10 flex flex-col min-h-full">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
