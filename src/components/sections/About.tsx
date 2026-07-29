@@ -25,7 +25,7 @@ export function About() {
             className="relative aspect-[4/5] overflow-hidden rounded-sm bg-zinc-900"
           >
             <Image
-              src="/images/photo.jpg"
+              src="/images/photo.jpeg"
               alt="Arpit Neewaliya"
               fill
               className="object-cover grayscale hover:grayscale-0 transition-all duration-700"

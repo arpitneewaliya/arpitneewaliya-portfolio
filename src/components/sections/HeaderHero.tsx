@@ -20,7 +20,7 @@ export function HeaderHero() {
             <div className="size-24 sm:size-28 rounded-2xl border border-dashed border-zinc-700 p-1 bg-zinc-900 shadow-md transition-all duration-300 group-hover:-translate-y-1">
               <div className="relative size-full rounded-xl overflow-hidden bg-zinc-800">
                 <Image
-                  src="/images/photo.jpg"
+                  src="/images/photo.jpeg"
                   alt={PORTFOLIO_DATA.name}
                   fill
                   priority
