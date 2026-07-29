@@ -35,9 +35,9 @@ const iconMap: Record<string, any> = {
 
 export function SkillsGrid() {
   return (
-    <section id="skills" className="py-8 border-b border-dashed border-zinc-800">
+    <section id="skills" className="py-8 border-b border-dashed border-zinc-300 dark:border-zinc-800">
       <div className="flex flex-col gap-4">
-        <h2 className="text-xl font-bold tracking-tight text-white">
+        <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
           Skills & Technologies
         </h2>
 
@@ -51,10 +51,10 @@ export function SkillsGrid() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: idx * 0.03 }}
-                className="rounded-lg border border-dashed border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800 hover:border-zinc-700 transition-all cursor-default flex items-center gap-2 px-3 py-1.5 text-xs text-zinc-300 select-none group"
+                className="rounded-lg border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 transition-all cursor-default flex items-center gap-2 px-3 py-1.5 text-xs text-zinc-900 dark:text-zinc-100 select-none group font-medium"
               >
-                <IconComponent className="size-4 shrink-0 text-zinc-400 group-hover:text-white transition-colors" />
-                <span className="font-medium">{skill.name}</span>
+                <IconComponent className="size-4 shrink-0 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white transition-colors" />
+                <span>{skill.name}</span>
               </motion.div>
             );
           })}

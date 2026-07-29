@@ -29,7 +29,7 @@ export interface SkillItem {
 export const PORTFOLIO_DATA = {
   name: "Arpit Neewaliya",
   nickname: "Arpit",
-  title: "Full Stack Engineer & Web Developer",
+  title: "Full Stack AI Engineer",
   location: "Delhi, India",
   status: "Open to work / internships",
   bio: [
@@ -66,26 +66,19 @@ export const PORTFOLIO_DATA = {
   ],
   experiences: [
     {
-      role: "Founding Engineer",
-      company: "Monolith Digital",
-      period: "2026 — Present",
-      description: "Leading core frontend & full stack architecture. Designing modular UI design systems and high-throughput real-time web applications.",
-      tags: ["Next.js", "React", "Node.js", "Tailwind CSS"]
+      role: "Technical Intern",
+      company: "DRDO (ADRDE)",
+      period: "June 2026 — August 2026",
+      description: "Fine-tuned a VLM for Drone Image Understanding and VQA. Used QLoRA fine-tuning approach for training the model.",
+      tags: ["Python", "Transformers", "PyTorch", "Kaggle Notebooks"]
     },
     {
-      role: "Full Stack Developer Intern",
-      company: "Aether Media Group",
-      period: "2025 — 2026",
-      description: "Engineered responsive web applications and backend API integrations. Built interactive dashboards with real-time data streaming.",
+      role: "Technical Team Member",
+      company: "AWS Student Builder Group - MAIT",
+      period: "2026 — Present",
+      description: "Built & designed the entire website for the AWS club. Collaborated with team members to create an engaging and interactive platform for AWS enthusiasts.",
       tags: ["TypeScript", "React", "PostgreSQL", "Express"]
     },
-    {
-      role: "Frontend Developer Intern",
-      company: "Stark Editorial Lab",
-      period: "2024 — 2025",
-      description: "Developed procedural UI components and optimized web vitals for editorial digital publications.",
-      tags: ["React", "CSS", "UI/UX Design"]
-    }
   ] as ExperienceItem[],
   projects: [
     {

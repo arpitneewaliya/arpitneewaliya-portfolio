@@ -1,18 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/data";
 
-interface NavbarProps {
-  theme?: "dark" | "light";
-  onToggleTheme?: () => void;
-}
-
-export function Navbar({ theme = "dark", onToggleTheme }: NavbarProps) {
+export function Navbar() {
+  const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "/#home" },
@@ -24,24 +26,24 @@ export function Navbar({ theme = "dark", onToggleTheme }: NavbarProps) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-[#0f0e0e]/80 border-b border-dashed border-zinc-800 transition-colors">
-      <div className="max-w-4xl mx-auto h-14 px-4 sm:px-6 flex items-center justify-between border-x border-dashed border-zinc-800">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-background/80 border-b border-dashed border-zinc-300 dark:border-zinc-800 transition-colors duration-300">
+      <div className="max-w-4xl mx-auto h-14 px-4 sm:px-6 flex items-center justify-between border-x border-dashed border-zinc-300 dark:border-zinc-800">
         
         {/* Brand / Logo */}
-        <Link href="/" className="flex items-center gap-1 group">
-          <span className="font-serif text-2xl tracking-tight text-white group-hover:text-zinc-300 transition-colors">
+        <Link href="/" className="flex items-center gap-1.5 group">
+          <span className="font-semibold text-lg sm:text-xl tracking-tight text-foreground group-hover:text-muted-foreground transition-colors">
             {PORTFOLIO_DATA.nickname}
           </span>
           <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 text-sm text-zinc-400 font-medium">
+        <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground font-medium">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="hover:text-white transition-colors duration-200"
+              className="hover:text-foreground transition-colors duration-200"
             >
               {link.name}
             </a>
@@ -50,12 +52,12 @@ export function Navbar({ theme = "dark", onToggleTheme }: NavbarProps) {
 
         {/* Action Controls */}
         <div className="flex items-center gap-3">
-          {onToggleTheme && (
+          {mounted && (
             <button
-              onClick={onToggleTheme}
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               type="button"
               aria-label="Toggle theme"
-              className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-all border border-transparent hover:border-zinc-800 cursor-pointer"
+              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-all border border-transparent hover:border-zinc-300 dark:hover:border-zinc-800 cursor-pointer"
             >
               {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
             </button>
@@ -66,7 +68,7 @@ export function Navbar({ theme = "dark", onToggleTheme }: NavbarProps) {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             type="button"
             aria-label="Toggle menu"
-            className="md:hidden p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-all cursor-pointer"
+            className="md:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-all cursor-pointer"
           >
             {isMobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -80,15 +82,15 @@ export function Navbar({ theme = "dark", onToggleTheme }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-b border-dashed border-zinc-800 bg-[#0f0e0e] overflow-hidden"
+            className="md:hidden border-b border-dashed border-zinc-300 dark:border-zinc-800 bg-background overflow-hidden"
           >
-            <div className="px-6 py-4 flex flex-col gap-4 text-sm text-zinc-300">
+            <div className="px-6 py-4 flex flex-col gap-4 text-sm text-foreground">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="py-1 hover:text-white transition-colors"
+                  className="py-1 hover:text-muted-foreground transition-colors"
                 >
                   {link.name}
                 </a>
