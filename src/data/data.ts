@@ -26,6 +26,16 @@ export interface SkillItem {
   iconName: string;
 }
 
+export interface BlogPost {
+  title: string;
+  date: string;
+  description: string;
+  image: string;
+  platform: "Medium" | "Dev.to" | "Substack" | "Hashnode" | "Other";
+  url: string;
+  readTime?: string;
+}
+
 export const PORTFOLIO_DATA = {
   name: "Arpit Neewaliya",
   nickname: "Arpit",
@@ -112,5 +122,52 @@ export const PORTFOLIO_DATA = {
       githubUrl: "https://github.com/arpitneewaliya/weather_app",
       isLive: true
     }
-  ] as Project[]
+  ] as Project[],
+  blogs: [
+    {
+      title: "Paxio V1 Technical Blog",
+      date: "June 2026",
+      description: "This is a comprehensive technical blog about Paxio V1, the engineering problems encountered, how we tackled them and how the systems work.",
+      image: "/images/blog_paxio.png",
+      platform: "Medium",
+      url: "https://medium.com/@arpitneewaliya",
+      readTime: "6 min read"
+    },
+    {
+      title: "Transformers Made Easy",
+      date: "July 2026",
+      description: "Talks about evolution of modern LLM architectures from basic Seq2Seq models and Seq2Seq with Attention to the Attention Is All You Need Transformer.",
+      image: "/images/blog_transformer.png",
+      platform: "Medium",
+      url: "https://medium.com/@arpitneewaliya",
+      readTime: "8 min read"
+    },
+    {
+      title: "CEXs, DEXs, AMMs, Liquidity Pools, Prediction Markets",
+      date: "July 2026",
+      description: "A guide to centralized and decentralized exchanges, liquidity pools, AMMs, prediction markets, and the core mechanisms that power modern crypto trading.",
+      image: "/images/blog_crypto.png",
+      platform: "Medium",
+      url: "https://medium.com/@arpitneewaliya",
+      readTime: "10 min read"
+    },
+    {
+      title: "Introduction to CNNs",
+      date: "June 2026",
+      description: "A comprehensive, beginner-friendly guide to Convolutional Neural Networks (CNNs) that explains their fundamental components including filters, padding, strides, and pooling layers and why they are vital for scaling computer vision tasks.",
+      image: "/images/blog_cnn.png",
+      platform: "Medium",
+      url: "https://medium.com/@arpitneewaliya",
+      readTime: "7 min read"
+    },
+    {
+      title: "How do Blockchains Work 101",
+      date: "May 2026",
+      description: "Blockchain explains a decentralized system that removes control from governments and enables secure digital transactions like Bitcoin. It also introduces Ethereum, smart contracts, and Web3 for building trustless apps without intermediaries.",
+      image: "/images/blog_blockchain.png",
+      platform: "Medium",
+      url: "https://medium.com/@arpitneewaliya",
+      readTime: "5 min read"
+    }
+  ] as BlogPost[]
 };

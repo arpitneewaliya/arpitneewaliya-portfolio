@@ -3,6 +3,7 @@ import { HeaderHero } from "@/components/sections/HeaderHero";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsGrid } from "@/components/sections/SkillsGrid";
 import { ExperienceTimeline } from "@/components/sections/ExperienceTimeline";
+import { Blog } from "@/components/sections/Blog";
 import { Contact } from "@/components/sections/Contact";
 import { PORTFOLIO_DATA } from "@/data/data";
 
@@ -26,6 +27,9 @@ export default function Home() {
 
           {/* Work Experience Timeline */}
           <ExperienceTimeline />
+
+          {/* Blog Section */}
+          <Blog />
 
           {/* Contact Form & Information */}
           <Contact />

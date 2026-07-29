@@ -1,76 +1,87 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-
-const posts = [
-  {
-    title: "The Philosophy of The Monolith",
-    date: "April 2024",
-    readTime: "5 min read",
-    description: "An exploration into the intersection of physical architecture and digital front-end development, and why rigid structures create freedom.",
-    link: "#"
-  },
-  {
-    title: "The Art of Negative Space in Modern Interface Design",
-    date: "March 2024",
-    readTime: "8 min read",
-    description: "Revisiting the decades of over-cluttered interfaces to find a new baseline of breathing room. How emptiness creates focus.",
-    link: "#"
-  },
-  {
-    title: "Procedural UI Engineering for Performant Apps",
-    date: "January 2024",
-    readTime: "6 min read",
-    description: "Technical teardown of generating massive, complex user interfaces procedurally without dropping frames.",
-    link: "#"
-  }
-];
+import Image from "next/image";
+import { ExternalLink } from "lucide-react";
+import { SiMedium } from "react-icons/si";
+import { PORTFOLIO_DATA } from "@/data/data";
 
 export function Blog() {
   return (
-    <section id="blog" className="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/5 bg-transparent">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-10 sm:mb-16 flex flex-col sm:flex-row justify-between sm:items-end gap-4"
-        >
-          <div>
-            <span className="text-xs tracking-[0.2em] text-gray-500 mb-4 block uppercase">Writing</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Recent Writings</h2>
+    <section id="blog" className="py-8 border-b border-dashed border-zinc-300 dark:border-zinc-800">
+      <div className="flex flex-col gap-6">
+        
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center gap-2 pb-2">
+          <div className="inline-flex items-center px-3 py-1 rounded-full border border-dashed border-zinc-300 dark:border-zinc-700 bg-zinc-100/80 dark:bg-zinc-900/80 text-xs font-mono font-medium text-zinc-700 dark:text-zinc-300">
+            My Blog Posts
           </div>
-          <Link href="#" className="hidden sm:flex items-center text-sm font-medium hover:text-gray-300 transition-colors uppercase tracking-widest">
-            All Posts <ArrowUpRight className="ml-1 w-4 h-4" />
-          </Link>
-        </motion.div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100">
+            Latest Insights &amp; Writing
+          </h2>
+        </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-          {posts.map((post, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
+        {/* Blog Posts Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          {PORTFOLIO_DATA.blogs.map((post, idx) => (
+            <motion.article
+              key={post.title}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="group cursor-pointer flex flex-col h-full"
+              transition={{ duration: 0.4, delay: idx * 0.08 }}
+              className="group flex flex-col overflow-hidden rounded-xl border border-dashed border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-950/60 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-300 shadow-sm hover:shadow-md"
             >
-              <div className="mb-4 flex items-center space-x-4 text-xs text-gray-500 uppercase tracking-widest">
-                <span>{post.date}</span>
-                <span className="w-1 h-1 rounded-full bg-gray-700"></span>
-                <span>{post.readTime}</span>
+              {/* Cover Image Container */}
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900 border-b border-dashed border-zinc-300 dark:border-zinc-800">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 group-hover:underline decoration-1 underline-offset-4">{post.title}</h3>
-              <p className="text-gray-400 mb-6 flex-grow">{post.description}</p>
-              <div className="pt-4 mt-auto border-t border-white/10 flex items-center text-sm font-medium text-gray-300">
-                Read More
+
+              {/* Blog Content Details */}
+              <div className="flex flex-col flex-1 p-4 sm:p-5 gap-2.5">
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-bold text-base sm:text-lg text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors leading-snug">
+                    {post.title}
+                  </h3>
+                  <div className="flex items-center gap-2 text-xs font-mono text-zinc-600 dark:text-zinc-400">
+                    <span>{post.date}</span>
+                    {post.readTime && (
+                      <>
+                        <span>•</span>
+                        <span>{post.readTime}</span>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed flex-1">
+                  {post.description}
+                </p>
+
+                {/* Platform Link Button */}
+                <div className="pt-2 mt-auto">
+                  <a
+                    href={post.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 border border-zinc-300 dark:border-zinc-800 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors"
+                  >
+                    <SiMedium className="size-3.5 text-zinc-900 dark:text-zinc-100" />
+                    <span>{post.platform}</span>
+                    <ExternalLink className="size-3 text-zinc-600 dark:text-zinc-400 ml-0.5" />
+                  </a>
+                </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
+
       </div>
     </section>
   );
