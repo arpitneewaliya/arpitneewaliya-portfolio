@@ -1,126 +1,102 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Sun, Moon, Menu, X } from "lucide-react";
+import { PORTFOLIO_DATA } from "@/data/data";
 
-export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+interface NavbarProps {
+  theme?: "dark" | "light";
+  onToggleTheme?: () => void;
+}
+
+export function Navbar({ theme = "dark", onToggleTheme }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMobileMenuOpen]);
-
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Projects", href: "/projects" },
-    { name: "Experience", href: "/experience" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", href: "/#home" },
+    { name: "About", href: "/#about" },
+    { name: "Projects", href: "/#projects" },
+    { name: "Skills", href: "/#skills" },
+    { name: "Experience", href: "/#experience" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
-    <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10 py-4" : "bg-transparent py-6"
-        }`}
-      >
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex justify-between items-center">
-          <Link href="/" className="text-lg sm:text-xl font-bold tracking-tight">
-            ARPIT NEEWALIYA<span className="text-gray-400">.</span>
-          </Link>
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-[#0f0e0e]/80 border-b border-dashed border-zinc-800 transition-colors">
+      <div className="max-w-4xl mx-auto h-14 px-4 sm:px-6 flex items-center justify-between border-x border-dashed border-zinc-800">
+        
+        {/* Brand / Logo */}
+        <Link href="/" className="flex items-center gap-1 group">
+          <span className="font-serif text-2xl tracking-tight text-white group-hover:text-zinc-300 transition-colors">
+            {PORTFOLIO_DATA.nickname}
+          </span>
+          <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+        </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-2 p-1.5 bg-white/5 border border-white/10 rounded-full backdrop-blur-md shadow-lg shadow-black/20">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="px-5 py-2 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-6 text-sm text-zinc-400 font-medium">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="hover:text-white transition-colors duration-200"
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
 
-          {/* Mobile hamburger button */}
+        {/* Action Controls */}
+        <div className="flex items-center gap-3">
+          {onToggleTheme && (
+            <button
+              onClick={onToggleTheme}
+              type="button"
+              aria-label="Toggle theme"
+              className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-all border border-transparent hover:border-zinc-800 cursor-pointer"
+            >
+              {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
+            </button>
+          )}
+
+          {/* Mobile Menu Button */}
           <button
-            className="md:hidden relative z-50 w-10 h-10 flex flex-col items-center justify-center gap-1.5"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle mobile menu"
+            type="button"
+            aria-label="Toggle menu"
+            className="md:hidden p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-all cursor-pointer"
           >
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isMobileMenuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
+            {isMobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
-      </motion.header>
+      </div>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl md:hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden border-b border-dashed border-zinc-800 bg-[#0f0e0e] overflow-hidden"
           >
-            <nav className="flex flex-col items-center justify-center h-full gap-8">
-              {navLinks.map((link, index) => (
-                <motion.div
+            <div className="px-6 py-4 flex flex-col gap-4 text-sm text-zinc-300">
+              {navLinks.map((link) => (
+                <a
                   key={link.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="py-1 hover:text-white transition-colors"
                 >
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-2xl font-medium text-gray-300 hover:text-white transition-colors duration-300"
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
+                  {link.name}
+                </a>
               ))}
-            </nav>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </header>
   );
 }
