@@ -13,11 +13,8 @@ export function Blog() {
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center gap-2 pb-2">
-          <div className="inline-flex items-center px-3 py-1 rounded-full border border-dashed border-zinc-300 dark:border-zinc-700 bg-zinc-100/80 dark:bg-zinc-900/80 text-xs font-mono font-medium text-zinc-700 dark:text-zinc-300">
-            My Blog Posts
-          </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100">
-            Latest Insights &amp; Writing
+            My Blogs
           </h2>
         </div>
 

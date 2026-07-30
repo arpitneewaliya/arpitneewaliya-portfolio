@@ -125,13 +125,13 @@ export const PORTFOLIO_DATA = {
   ] as Project[],
   blogs: [
     {
-      title: "Paxio V1 Technical Blog",
-      date: "June 2026",
-      description: "This is a comprehensive technical blog about Paxio V1, the engineering problems encountered, how we tackled them and how the systems work.",
-      image: "/images/blog_paxio.png",
+      title: "Introduction to VLMs",
+      date: "July 2026",
+      description: "Learn how Vision Language Models are transforming AI by enabling machines to see, understand, and reason like never before.",
+      image: "/images/blog_vlm.png",
       platform: "Medium",
-      url: "https://medium.com/@arpitneewaliya",
-      readTime: "6 min read"
+      url: "https://medium.com/@arpitneewaliya/introduction-to-vlms-979601fd1291?sharedUserId=arpitneewaliya",
+      readTime: "5 min read"
     },
     {
       title: "Transformers Made Easy",
@@ -160,14 +160,5 @@ export const PORTFOLIO_DATA = {
       url: "https://medium.com/@arpitneewaliya",
       readTime: "7 min read"
     },
-    {
-      title: "How do Blockchains Work 101",
-      date: "May 2026",
-      description: "Blockchain explains a decentralized system that removes control from governments and enables secure digital transactions like Bitcoin. It also introduces Ethereum, smart contracts, and Web3 for building trustless apps without intermediaries.",
-      image: "/images/blog_blockchain.png",
-      platform: "Medium",
-      url: "https://medium.com/@arpitneewaliya",
-      readTime: "5 min read"
-    }
   ] as BlogPost[]
 };
