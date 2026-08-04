@@ -21,6 +21,17 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
 
+  const handleThemeToggle = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    if (typeof document !== "undefined" && "startViewTransition" in document) {
+      (document as unknown as { startViewTransition: (cb: () => void) => void }).startViewTransition(() => {
+        setTheme(nextTheme);
+      });
+    } else {
+      setTheme(nextTheme);
+    }
+  };
+
   const navLinks = [
     { name: "Home", href: "/#home" },
     { name: "About", href: "/#about" },
@@ -31,7 +42,7 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-background/80 border-b border-dashed border-zinc-300 dark:border-zinc-800 transition-colors duration-300">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-background/80 border-b border-dashed border-zinc-300 dark:border-zinc-800 transition-colors duration-200">
       <div className="max-w-4xl mx-auto h-14 px-4 sm:px-6 flex items-center justify-between border-x border-dashed border-zinc-300 dark:border-zinc-800">
         
         {/* Brand / Logo */}
@@ -59,7 +70,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           {mounted && (
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={handleThemeToggle}
               type="button"
               aria-label="Toggle theme"
               className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-all border border-transparent hover:border-zinc-300 dark:hover:border-zinc-800 cursor-pointer"
