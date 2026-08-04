@@ -142,23 +142,5 @@ export const PORTFOLIO_DATA = {
       url: "https://medium.com/@arpitneewaliya/vision-transformers-how-ai-learned-to-see-without-convolutions-35ba9cce01c4?sharedUserId=arpitneewaliya",
       readTime: "4 min read"
     },
-    {
-      title: "CEXs, DEXs, AMMs, Liquidity Pools, Prediction Markets",
-      date: "July 2026",
-      description: "A guide to centralized and decentralized exchanges, liquidity pools, AMMs, prediction markets, and the core mechanisms that power modern crypto trading.",
-      image: "/images/blog_crypto.png",
-      platform: "Medium",
-      url: "https://medium.com/@arpitneewaliya",
-      readTime: "10 min read"
-    },
-    {
-      title: "Introduction to CNNs",
-      date: "June 2026",
-      description: "A comprehensive, beginner-friendly guide to Convolutional Neural Networks (CNNs) that explains their fundamental components including filters, padding, strides, and pooling layers and why they are vital for scaling computer vision tasks.",
-      image: "/images/blog_cnn.png",
-      platform: "Medium",
-      url: "https://medium.com/@arpitneewaliya",
-      readTime: "7 min read"
-    },
   ] as BlogPost[]
 };
