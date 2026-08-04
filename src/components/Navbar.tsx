@@ -4,21 +4,20 @@ import { useState, useEffect, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Home, 
-  User, 
-  FolderGit2, 
-  Cpu, 
-  Briefcase, 
-  BookOpen, 
-  Sun, 
-  Moon, 
-  Menu, 
-  X 
+import {
+  Home,
+  FolderGit2,
+  Cpu,
+  Briefcase,
+  BookOpen,
+  Sun,
+  Moon,
+  Menu,
+  X
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/data";
 
-const emptySubscribe = () => () => {};
+const emptySubscribe = () => () => { };
 function useHasMounted() {
   return useSyncExternalStore(
     emptySubscribe,
@@ -36,7 +35,6 @@ export function Navbar() {
   useEffect(() => {
     const sections = [
       { id: "home" },
-      { id: "about" },
       { id: "projects" },
       { id: "skills" },
       { id: "experience" },
@@ -76,7 +74,6 @@ export function Navbar() {
 
   const dockLinks = [
     { name: "Home", href: "/#home", id: "home", icon: Home },
-    { name: "About", href: "/#about", id: "about", icon: User },
     { name: "Projects", href: "/#projects", id: "projects", icon: FolderGit2 },
     { name: "Skills", href: "/#skills", id: "skills", icon: Cpu },
     { name: "Experience", href: "/#experience", id: "experience", icon: Briefcase },
@@ -86,7 +83,7 @@ export function Navbar() {
   return (
     <header className="sticky top-3 z-50 w-full px-4 flex items-center justify-center">
       <div className="w-full max-w-4xl mx-auto flex items-center justify-between gap-2 px-3 py-2 rounded-full border border-zinc-300/80 dark:border-zinc-800/80 bg-background/85 backdrop-blur-xl shadow-xl shadow-black/5 dark:shadow-black/40 transition-colors duration-200">
-        
+
         {/* Brand / Logo */}
         <Link href="/" className="flex items-center gap-2 pl-2 group">
           <div className="size-7 rounded-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 flex items-center justify-center font-bold text-xs shadow-sm transition-transform duration-300 group-hover:scale-105">
@@ -110,11 +107,10 @@ export function Navbar() {
                 whileHover={{ scale: 1.15, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 group ${
-                  isActive 
-                    ? "text-zinc-950 dark:text-white bg-white dark:bg-zinc-800 shadow-sm" 
+                className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 group ${isActive
+                    ? "text-zinc-950 dark:text-white bg-white dark:bg-zinc-800 shadow-sm"
                     : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-300/50 dark:hover:bg-zinc-800/50"
-                }`}
+                  }`}
               >
                 <Icon className={`size-3.5 transition-colors ${isActive ? "text-emerald-600 dark:text-emerald-400" : ""}`} />
                 <span>{item.name}</span>
@@ -183,11 +179,10 @@ export function Navbar() {
                     key={item.id}
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all ${
-                      isActive
+                    className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all ${isActive
                         ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
                         : "text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900"
-                    }`}
+                      }`}
                   >
                     <Icon className="size-4 shrink-0" />
                     <span>{item.name}</span>
@@ -201,4 +196,3 @@ export function Navbar() {
     </header>
   );
 }
-

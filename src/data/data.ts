@@ -38,13 +38,13 @@ export interface BlogPost {
 
 export const PORTFOLIO_DATA = {
   name: "Arpit Neewaliya",
-  nickname: "Arpit",
+  nickname: "Arpit Neewaliya",
   title: "Full Stack AI Engineer",
   location: "Delhi, India",
   status: "Open to work / internships",
   bio: [
-    "I'm a Full Stack AI Engineer passionate about crafting digital products where thoughtful design meets clean, scalable code.",
-    "I build modern interfaces with Next.js, React, Tailwind, and Framer Motion, focusing on performance, usability, and delightful micro-interactions.",
+    "I am a Full Stack AI Engineer passionate about creating digital products where thoughtful design meets clean and scalable code.",
+    "I build modern interfaces using Next.js, React, Tailwind CSS & TypeScript, focusing on performance, usability and seamless user experiences.",
     "Committed to building fast, maintainable code and seamless user experiences across web & backend systems."
   ],
   socials: {
