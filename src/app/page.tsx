@@ -4,7 +4,6 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsGrid } from "@/components/sections/SkillsGrid";
 import { ExperienceTimeline } from "@/components/sections/ExperienceTimeline";
 import { Blog } from "@/components/sections/Blog";
-import { Contact } from "@/components/sections/Contact";
 import { PORTFOLIO_DATA } from "@/data/data";
 
 export default function Home() {
@@ -31,14 +30,11 @@ export default function Home() {
           {/* Blog Section */}
           <Blog />
 
-          {/* Contact Form & Information */}
-          <Contact />
-
         </div>
 
         {/* Footer */}
         <footer className="py-8 text-center text-xs text-muted-foreground font-mono tracking-wider uppercase border-t border-dashed border-zinc-400/60 dark:border-zinc-800/80 mt-8">
-          © {new Date().getFullYear()} {PORTFOLIO_DATA.name}. Built with Next.js & Tailwind CSS.
+          © {new Date().getFullYear()} {PORTFOLIO_DATA.name}.
         </footer>
       </main>
     </div>

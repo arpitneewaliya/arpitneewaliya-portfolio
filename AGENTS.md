@@ -47,10 +47,10 @@ npm run lint
 ## 4. Directory Structure & Path Aliases
 
 - `@/` maps to `src/`
-- `@/app` (`src/app/`): App router pages, layouts, and API routes (`/api/contact`).
+- `@/app` (`src/app/`): App router pages and layouts.
 - `@/components` (`src/components/`):
   - `@/components/ui`: Low-level reusable UI primitives (Button, Card, Input, Label, Textarea).
-  - `@/components/sections`: Page section components (Hero, HeaderHero, About, ProjectsSection, ExperienceTimeline, SkillsGrid, TechStack, Contact, Blog).
+  - `@/components/sections`: Page section components (Hero, HeaderHero, About, ProjectsSection, ExperienceTimeline, SkillsGrid, TechStack, Blog).
 - `@/data` (`src/data/`): Static content & data models (`data.ts`).
 - `@/lib` (`src/lib/`): Core utilities (e.g., `cn(...)` in `utils.ts`).
 
@@ -70,10 +70,6 @@ npm run lint
 ### 5.3 Data Management
 - Keep component code clean by centralizing static portfolio data inside `src/data/data.ts`.
 - Avoid hardcoding user content (projects, experiences, bio) directly inside section components.
-
-### 5.4 Form Validation & API Routes
-- Use **React Hook Form** combined with **Zod** schema validation for interactive forms.
-- Contact form submissions should target the `/api/contact` API route powered by **Nodemailer**.
 
 ### 5.5 Animations
 - Use **Framer Motion (`motion`)** for component mount/unmount animations, scroll-triggered reveals, and micro-interactions.
