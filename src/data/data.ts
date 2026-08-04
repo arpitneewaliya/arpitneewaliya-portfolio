@@ -134,13 +134,13 @@ export const PORTFOLIO_DATA = {
       readTime: "5 min read"
     },
     {
-      title: "Transformers Made Easy",
+      title: "Vision Transformers: How AI Learned to See Without Convolutions",
       date: "July 2026",
-      description: "Talks about evolution of modern LLM architectures from basic Seq2Seq models and Seq2Seq with Attention to the Attention Is All You Need Transformer.",
-      image: "/images/blog_transformer.png",
+      description: "Explore how Vision Transformers are redefining the future of computer vision.",
+      image: "/images/blog_vision-trans.webp",
       platform: "Medium",
-      url: "https://medium.com/@arpitneewaliya",
-      readTime: "8 min read"
+      url: "https://medium.com/@arpitneewaliya/vision-transformers-how-ai-learned-to-see-without-convolutions-35ba9cce01c4?sharedUserId=arpitneewaliya",
+      readTime: "4 min read"
     },
     {
       title: "CEXs, DEXs, AMMs, Liquidity Pools, Prediction Markets",
