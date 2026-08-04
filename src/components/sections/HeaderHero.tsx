@@ -79,9 +79,9 @@ export function HeaderHero() {
             href={PORTFOLIO_DATA.socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-lg border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-xs text-zinc-900 dark:text-zinc-100 font-medium flex items-center gap-2 transition-all group"
+            className="px-4 py-2 rounded-xl border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-sm text-zinc-900 dark:text-zinc-100 font-medium flex items-center gap-2.5 transition-all group"
           >
-            <FaGithub className="size-3.5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white" />
+            <FaGithub className="size-4.5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white" />
             <span>GitHub</span>
           </a>
 
@@ -89,9 +89,9 @@ export function HeaderHero() {
             href={PORTFOLIO_DATA.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-lg border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-xs text-zinc-900 dark:text-zinc-100 font-medium flex items-center gap-2 transition-all group"
+            className="px-4 py-2 rounded-xl border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-sm text-zinc-900 dark:text-zinc-100 font-medium flex items-center gap-2.5 transition-all group"
           >
-            <FaLinkedinIn className="size-3.5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white" />
+            <FaLinkedinIn className="size-4.5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white" />
             <span>LinkedIn</span>
           </a>
 
@@ -99,17 +99,17 @@ export function HeaderHero() {
             href={PORTFOLIO_DATA.socials.twitter}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-lg border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-xs text-zinc-900 dark:text-zinc-100 font-medium flex items-center gap-2 transition-all group"
+            className="px-4 py-2 rounded-xl border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-sm text-zinc-900 dark:text-zinc-100 font-medium flex items-center gap-2.5 transition-all group"
           >
-            <FaXTwitter className="size-3.5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white" />
+            <FaXTwitter className="size-4.5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white" />
             <span>Twitter</span>
           </a>
 
           <a
             href={`mailto:${PORTFOLIO_DATA.socials.email}`}
-            className="px-3 py-1.5 rounded-lg border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-xs text-zinc-900 dark:text-zinc-100 font-medium flex items-center gap-2 transition-all group"
+            className="px-4 py-2 rounded-xl border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-sm text-zinc-900 dark:text-zinc-100 font-medium flex items-center gap-2.5 transition-all group"
           >
-            <Mail className="size-3.5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white" />
+            <Mail className="size-4.5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white" />
             <span>Mail</span>
           </a>
 
@@ -117,9 +117,9 @@ export function HeaderHero() {
             href={PORTFOLIO_DATA.socials.leetcode}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-lg border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-xs text-zinc-900 dark:text-zinc-100 font-medium flex items-center gap-2 transition-all group"
+            className="px-4 py-2 rounded-xl border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-sm text-zinc-900 dark:text-zinc-100 font-medium flex items-center gap-2.5 transition-all group"
           >
-            <LeetcodeIcon className="size-3.5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white" />
+            <LeetcodeIcon className="size-4.5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white" />
             <span>LeetCode</span>
           </a>
 
@@ -127,9 +127,9 @@ export function HeaderHero() {
             href={PORTFOLIO_DATA.socials.codeforces}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-lg border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-xs text-zinc-900 dark:text-zinc-100 font-medium flex items-center gap-2 transition-all group"
+            className="px-4 py-2 rounded-xl border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-sm text-zinc-900 dark:text-zinc-100 font-medium flex items-center gap-2.5 transition-all group"
           >
-            <CodeforcesIcon className="size-3.5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white" />
+            <CodeforcesIcon className="size-4.5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white" />
             <span>Codeforces</span>
           </a>
         </div>
