@@ -1,5 +1,6 @@
 "use client";
 
+import { ComponentType } from "react";
 import { motion } from "framer-motion";
 import { 
   SiReact, 
@@ -16,7 +17,7 @@ import {
 import { FaAws, FaDocker, FaLinux, FaGitAlt } from "react-icons/fa";
 import { PORTFOLIO_DATA } from "@/data/data";
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, ComponentType<{ className?: string }>> = {
   SiReact: SiReact,
   RiNextjsFill: SiNextdotjs,
   SiTypescript: SiTypescript,

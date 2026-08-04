@@ -47,8 +47,9 @@ export function Contact() {
       setIsSuccess(true);
       reset();
       setTimeout(() => setIsSuccess(false), 5000);
-    } catch (err: any) {
-      setErrorMsg(err.message || "An error occurred.");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "An error occurred.";
+      setErrorMsg(message);
     } finally {
       setIsSubmitting(false);
     }
@@ -146,7 +147,7 @@ export function Contact() {
               {isSuccess && (
                 <div className="text-emerald-700 dark:text-emerald-400 text-xs p-2.5 bg-emerald-500/10 rounded-md border border-emerald-500/20 flex items-center gap-2 font-medium">
                   <CheckCircle2 className="size-4 shrink-0" />
-                  <span>Message sent successfully! I'll get back to you soon.</span>
+                  <span>Message sent successfully! I&apos;ll get back to you soon.</span>
                 </div>
               )}
 

@@ -7,12 +7,6 @@ import { FaLinkedinIn, FaMedium } from "react-icons/fa";
 import { BiLogoDevTo } from "react-icons/bi";
 
 export function About() {
-  const technicalFoundations = [
-    { category: "Core Design", skills: ["Figma", "UI/UX", "Design Systems"] },
-    { category: "Interface Architecture", skills: ["React", "Next.js", "TypeScript"] },
-    { category: "Systems", skills: ["Node.js", "PostgreSQL", "System Design"] },
-  ];
-
   return (
     <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/5 bg-transparent">
       <div className="max-w-6xl mx-auto">
@@ -46,7 +40,7 @@ export function About() {
                   Based in India, I am a Full-Stack Engineer bridging the gap between rigorous technical infrastructure and human-centric interface design.
                 </p>
                 <p>
-                  I operate under the philosophy that code should be as clean and expressive as a well-designed publication. Over my career, I've collaborated with global startups and enterprise teams to build robust, enduring digital experiences.
+                  I operate under the philosophy that code should be as clean and expressive as a well-designed publication. Over my career, I&apos;ve collaborated with global startups and enterprise teams to build robust, enduring digital experiences.
                 </p>
               </div>
 
