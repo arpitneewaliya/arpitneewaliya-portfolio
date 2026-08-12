@@ -13,7 +13,7 @@ export default function Home() {
 
       {/* Main Single Column Layout Wrapper */}
       <main className="mx-auto w-full max-w-4xl px-4 sm:px-6 py-6 border-x border-dashed border-zinc-400/60 dark:border-zinc-800/80 min-h-[calc(100vh-3.5rem)] flex flex-col relative z-10">
-        <div className="border border-dashed border-zinc-400/60 dark:border-zinc-800/80 rounded-2xl p-4 sm:p-8 bg-zinc-50/90 dark:bg-zinc-950/85 backdrop-blur-md shadow-2xl flex flex-col gap-2">
+        <div className="border border-dashed border-zinc-400/60 dark:border-zinc-800/80 rounded-2xl p-4 sm:p-8 bg-zinc-50/90 dark:bg-zinc-900/90 backdrop-blur-md shadow-2xl flex flex-col gap-2">
           
           {/* Header & Bio Section */}
           <HeaderHero />

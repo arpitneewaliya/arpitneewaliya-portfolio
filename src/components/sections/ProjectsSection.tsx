@@ -30,7 +30,7 @@ export function ProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group flex flex-col h-full overflow-hidden rounded-xl border border-dashed border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-950/60 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="group flex flex-col h-full overflow-hidden rounded-xl border border-dashed border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-300 shadow-sm hover:shadow-md"
             >
               {/* Media Preview Box */}
               <div className="relative aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900 border-b border-dashed border-zinc-300 dark:border-zinc-800">
@@ -44,7 +44,7 @@ export function ProjectsSection() {
                 
                 {/* Status Indicator */}
                 {project.isLive && (
-                  <div className="absolute top-2.5 right-2.5 flex items-center gap-1.5 px-2 py-1 rounded-md bg-white/90 dark:bg-zinc-950/80 backdrop-blur-md border border-zinc-300 dark:border-zinc-800 text-[10px] text-emerald-700 dark:text-emerald-400 font-bold font-mono">
+                  <div className="absolute top-2.5 right-2.5 flex items-center gap-1.5 px-2 py-1 rounded-md bg-white/90 dark:bg-zinc-900/80 backdrop-blur-md border border-zinc-300 dark:border-zinc-800 text-[10px] text-emerald-700 dark:text-emerald-400 font-bold font-mono">
                     <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     <span>Live</span>
                   </div>
