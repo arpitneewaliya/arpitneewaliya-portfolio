@@ -113,6 +113,16 @@ export const PORTFOLIO_DATA = {
       isLive: true
     },
     {
+      title: "Zanshin Focus",
+      subtitle: "All-in-one productivity app for deep focus.",
+      description: "Zanshin Focus is a minimalist productivity web app that brings together a Pomodoro Timer, Task Manager, Habit Tracker, and Personal Journal alongside a distraction-free Focus Mode with ambient sounds. It helps you stay organized and consistently productive through clean, distraction-free tools designed to keep you in flow.",
+      tags: ["Next.js", "Supabase", "Tailwind CSS", "TypeScript", "Zustand"],
+      image: "/images/project_zanshin.png",
+      liveUrl: "https://zanshin-focus.vercel.app/",
+      githubUrl: "#",
+      isLive: false
+    },
+    {
       title: "Weather App",
       subtitle: "Real-time weather updates",
       description: "A weather app to get the weather information of any city in the world. It uses REST API to fetch the current weather.",
@@ -140,6 +150,15 @@ export const PORTFOLIO_DATA = {
       image: "/images/blog_vision-trans.webp",
       platform: "Medium",
       url: "https://medium.com/@arpitneewaliya/vision-transformers-how-ai-learned-to-see-without-convolutions-35ba9cce01c4?sharedUserId=arpitneewaliya",
+      readTime: "4 min read"
+    },
+    {
+      title: "How I Fine-Tuned a Vision Language Model for Drone Image Understanding",
+      date: "August 2026",
+      description: "My journey for fine-tuning a Vision Language Model for Drone Image Understanding and Visual Question Answering.",
+      image: "/images/blog_fine-tune.png",
+      platform: "Medium",
+      url: "https://medium.com/@arpitneewaliya/how-i-fine-tuned-a-vision-language-model-for-drone-image-understanding-ab3329d6c210",
       readTime: "4 min read"
     },
   ] as BlogPost[]
