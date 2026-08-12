@@ -82,16 +82,63 @@ const brandColors: Record<string, string> = {
 
 export function SkillsGrid() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<string>("All");
+
+  const categories = [
+    "All",
+    "Languages & Core",
+    "Frontend",
+    "Backend",
+    "AI & Data Science",
+    "DevOps & Tools",
+  ] as const;
+
+  const filteredSkills =
+    activeTab === "All"
+      ? PORTFOLIO_DATA.skills
+      : PORTFOLIO_DATA.skills.filter((skill) => skill.category === activeTab);
 
   return (
     <section id="skills" className="py-8 border-b border-dashed border-zinc-300 dark:border-zinc-800 scroll-mt-24">
-      <div className="flex flex-col gap-4">
-        <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-          Skills & Technologies
-        </h2>
+      <div className="flex flex-col gap-6">
+        
+        {/* Header & Category Filter Tabs */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+            Skills & Technologies
+          </h2>
 
-        <div className="flex flex-wrap gap-2 pt-1">
-          {PORTFOLIO_DATA.skills.map((skill, idx) => {
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap items-center gap-1.5">
+            {categories.map((cat) => {
+              const isActive = activeTab === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveTab(cat)}
+                  type="button"
+                  className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+                    isActive
+                      ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 shadow-sm font-semibold"
+                      : "bg-zinc-200/60 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-300/60 dark:hover:bg-zinc-700/60"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Skill Pills Grid */}
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25 }}
+          className="flex flex-wrap gap-2 pt-1"
+        >
+          {filteredSkills.map((skill, idx) => {
             const IconComponent = iconMap[skill.icon] || SiReact;
             const brandColor = brandColors[skill.icon];
             const isHovered = hoveredSkill === skill.name;
@@ -102,7 +149,7 @@ export function SkillsGrid() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: idx * 0.03 }}
+                transition={{ duration: 0.2, delay: idx * 0.02 }}
                 onMouseEnter={() => setHoveredSkill(skill.name)}
                 onMouseLeave={() => setHoveredSkill(null)}
                 className="rounded-lg border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 transition-all cursor-default flex items-center gap-2 px-3 py-1.5 text-xs text-zinc-900 dark:text-zinc-100 select-none group font-medium"
@@ -121,7 +168,8 @@ export function SkillsGrid() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );

@@ -22,8 +22,8 @@ export interface ExperienceItem {
 
 export interface SkillItem {
   name: string;
-  category: "Frontend" | "Backend" | "Languages & Core" | "DevOps & Tools";
-  iconName: string;
+  category: "Languages & Core" | "Frontend" | "Backend" | "AI & Data Science" | "DevOps & Tools";
+  icon: string;
 }
 
 export interface BlogPost {
@@ -59,12 +59,12 @@ export const PORTFOLIO_DATA = {
     resume: "/resume.pdf"
   },
   skills: [
-    { name: "React", category: "Frontend", icon: "SiReact" },
-    { name: "Next.js", category: "Frontend", icon: "RiNextjsFill" },
     { name: "TypeScript", category: "Languages & Core", icon: "SiTypescript" },
     { name: "JavaScript", category: "Languages & Core", icon: "IoLogoJavascript" },
     { name: "Python", category: "Languages & Core", icon: "SiPython" },
     { name: "Java", category: "Languages & Core", icon: "FaJava" },
+    { name: "React", category: "Frontend", icon: "SiReact" },
+    { name: "Next.js", category: "Frontend", icon: "RiNextjsFill" },
     { name: "Tailwind CSS", category: "Frontend", icon: "SiTailwindcss" },
     { name: "HTML5", category: "Frontend", icon: "FaHtml5" },
     { name: "CSS3", category: "Frontend", icon: "FaCss3Alt" },
@@ -75,17 +75,17 @@ export const PORTFOLIO_DATA = {
     { name: "MongoDB", category: "Backend", icon: "SiMongodb" },
     { name: "Supabase", category: "Backend", icon: "SiSupabase" },
     { name: "Prisma", category: "Backend", icon: "SiPrisma" },
+    { name: "Claude AI", category: "AI & Data Science", icon: "SiClaude" },
+    { name: "Hugging Face", category: "AI & Data Science", icon: "SiHuggingface" },
+    { name: "Kaggle", category: "AI & Data Science", icon: "SiKaggle" },
+    { name: "Jupyter", category: "AI & Data Science", icon: "SiJupyter" },
     { name: "AWS", category: "DevOps & Tools", icon: "FaAws" },
     { name: "Docker", category: "DevOps & Tools", icon: "FaDocker" },
     { name: "Linux", category: "DevOps & Tools", icon: "FaLinux" },
     { name: "Git", category: "DevOps & Tools", icon: "FaGitAlt" },
-    { name: "Claude AI", category: "DevOps & Tools", icon: "SiClaude" },
-    { name: "Hugging Face", category: "DevOps & Tools", icon: "SiHuggingface" },
-    { name: "Kaggle", category: "DevOps & Tools", icon: "SiKaggle" },
-    { name: "Jupyter", category: "DevOps & Tools", icon: "SiJupyter" },
     { name: "Vercel", category: "DevOps & Tools", icon: "SiVercel" },
     { name: "Postman", category: "DevOps & Tools", icon: "SiPostman" },
-  ],
+  ] as SkillItem[],
   experiences: [
     {
       role: "Technical Intern",
