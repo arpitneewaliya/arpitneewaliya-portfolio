@@ -8,7 +8,7 @@ import { PORTFOLIO_DATA } from "@/data/data";
 
 export function Blog() {
   return (
-    <section id="blog" className="py-8 border-b border-dashed border-zinc-300 dark:border-zinc-800">
+    <section id="blog" className="py-8 border-b border-dashed border-zinc-300 dark:border-zinc-800 scroll-mt-24">
       <div className="flex flex-col gap-6">
         
         {/* Section Header */}

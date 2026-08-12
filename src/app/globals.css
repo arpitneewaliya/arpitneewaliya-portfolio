@@ -101,6 +101,7 @@
   }
   html {
     @apply font-sans;
+    scroll-padding-top: 5.5rem;
   }
   ::selection {
     @apply bg-foreground text-background;

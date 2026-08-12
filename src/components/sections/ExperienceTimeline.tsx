@@ -5,7 +5,7 @@ import { PORTFOLIO_DATA } from "@/data/data";
 
 export function ExperienceTimeline() {
   return (
-    <section id="experience" className="py-8 border-b border-dashed border-zinc-300 dark:border-zinc-800">
+    <section id="experience" className="py-8 border-b border-dashed border-zinc-300 dark:border-zinc-800 scroll-mt-24">
       <div className="flex flex-col gap-6">
         <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
           <span>Work Experience</span>

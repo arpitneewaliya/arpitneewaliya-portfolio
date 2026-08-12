@@ -84,7 +84,7 @@ export function SkillsGrid() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   return (
-    <section id="skills" className="py-8 border-b border-dashed border-zinc-300 dark:border-zinc-800">
+    <section id="skills" className="py-8 border-b border-dashed border-zinc-300 dark:border-zinc-800 scroll-mt-24">
       <div className="flex flex-col gap-4">
         <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
           Skills & Technologies

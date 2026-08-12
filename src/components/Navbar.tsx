@@ -5,11 +5,6 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Home,
-  FolderGit2,
-  Cpu,
-  Briefcase,
-  BookOpen,
   Sun,
   Moon,
   Menu,
@@ -72,12 +67,25 @@ export function Navbar() {
     }
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -90;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      setActiveSection(id);
+      window.history.pushState(null, "", `#${id}`);
+    }
+  };
+
   const dockLinks = [
-    { name: "Home", href: "/#home", id: "home", icon: Home },
-    { name: "Projects", href: "/#projects", id: "projects", icon: FolderGit2 },
-    { name: "Skills", href: "/#skills", id: "skills", icon: Cpu },
-    { name: "Experience", href: "/#experience", id: "experience", icon: Briefcase },
-    { name: "Blogs", href: "/#blog", id: "blog", icon: BookOpen },
+    { name: "Home", href: "/#home", id: "home" },
+    { name: "Projects", href: "/#projects", id: "projects" },
+    { name: "Skills", href: "/#skills", id: "skills" },
+    { name: "Experience", href: "/#experience", id: "experience" },
+    { name: "Blogs", href: "/#blog", id: "blog" },
   ];
 
   return (
@@ -95,39 +103,33 @@ export function Navbar() {
           <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
         </Link>
 
-        {/* macOS Style Floating Command Dock (Desktop) */}
-        <nav className="hidden md:flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-zinc-300/60 dark:border-zinc-800/60 bg-zinc-200/50 dark:bg-zinc-900/60 shadow-inner">
+        {/* Floating Command Dock (Desktop) - Text Only */}
+        <nav className="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full border border-zinc-300/60 dark:border-zinc-800/60 bg-zinc-200/50 dark:bg-zinc-900/60 shadow-inner">
           {dockLinks.map((item) => {
-            const Icon = item.icon;
             const isActive = activeSection === item.id;
             return (
               <motion.a
                 key={item.id}
                 href={item.href}
-                whileHover={{ scale: 1.15, y: -2 }}
+                onClick={(e) => handleNavClick(e, item.id)}
+                whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                className={`relative flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 group ${isActive
-                    ? "text-zinc-950 dark:text-white bg-white dark:bg-zinc-800 shadow-sm"
+                className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${isActive
+                    ? "text-zinc-950 dark:text-white bg-white dark:bg-zinc-800 shadow-sm font-semibold"
                     : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-300/50 dark:hover:bg-zinc-800/50"
                   }`}
               >
-                <Icon className={`size-4.5 transition-colors ${isActive ? "text-emerald-600 dark:text-emerald-400" : ""}`} />
                 <span>{item.name}</span>
 
                 {/* Active Indicator Glow Dot */}
                 {isActive && (
                   <motion.span
                     layoutId="activeDockDot"
-                    className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 size-1.5 rounded-full bg-emerald-500 shadow-[0_0_6px_#10b981]"
+                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 size-1.5 rounded-full bg-emerald-500 shadow-[0_0_6px_#10b981]"
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
-
-                {/* macOS Hover Tooltip */}
-                <span className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-md bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 text-xs font-mono font-medium opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 transition-all duration-200 shadow-md whitespace-nowrap z-50">
-                  {item.name}
-                </span>
               </motion.a>
             );
           })}
@@ -172,19 +174,17 @@ export function Navbar() {
           >
             <div className="grid grid-cols-2 gap-2">
               {dockLinks.map((item) => {
-                const Icon = item.icon;
                 const isActive = activeSection === item.id;
                 return (
                   <a
                     key={item.id}
                     href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all ${isActive
-                        ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
+                    onClick={(e) => handleNavClick(e, item.id)}
+                    className={`flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-medium transition-all ${isActive
+                        ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-semibold"
                         : "text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900"
                       }`}
                   >
-                    <Icon className="size-4 shrink-0" />
                     <span>{item.name}</span>
                   </a>
                 );
