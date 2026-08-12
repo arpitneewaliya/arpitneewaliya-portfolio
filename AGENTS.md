@@ -7,6 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 # AGENTS.md — Developer & AI Agent Guidelines
 
 ## 1. Project Overview
+
 This repository contains the official portfolio website for **Arpit Neewaliya**, built as a modern, high-performance web application utilizing **Next.js 16 (App Router)** and **React 19**.
 
 ---
@@ -59,25 +60,30 @@ npm run lint
 ## 5. Architectural & Coding Guidelines
 
 ### 5.1 Next.js 16 & React 19 Conventions
+
 - **Server vs Client Components**: Use Server Components by default. Include `'use client'` directive at the top of files that utilize React state, hooks, DOM event handlers, or animation libraries.
 - **Async Request APIs**: Next.js 16 introduces async request APIs (`params`, `searchParams`, `cookies()`, `headers()`). Always `await` these objects where applicable.
 
 ### 5.2 Styling Guidelines (Tailwind CSS v4)
+
 - **Import Syntax**: Uses `@import "tailwindcss";` and `@theme inline` in `src/app/globals.css`.
 - **Color Tokens**: Defined via OKLCH color space for both light and dark themes.
 - **Class Merging**: Always use `cn(...)` from `@/lib/utils` when merging conditional dynamic class names.
 
 ### 5.3 Data Management
+
 - Keep component code clean by centralizing static portfolio data inside `src/data/data.ts`.
 - Avoid hardcoding user content (projects, experiences, bio) directly inside section components.
 
 ### 5.5 Animations
+
 - Use **Framer Motion (`motion`)** for component mount/unmount animations, scroll-triggered reveals, and micro-interactions.
 - Use **GSAP** for advanced timelines or complex canvas/DOM manipulations when required.
 
 ---
 
 ## 6. Verification Checklist Before Committing
+
 1. Run `npm run build` to verify there are no TypeScript or compilation errors.
 2. Run `npm run lint` to enforce ESLint rules.
 3. Ensure no hardcoded dummy data breaks responsive layout or theme switching.
