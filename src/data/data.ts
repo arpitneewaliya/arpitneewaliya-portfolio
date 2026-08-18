@@ -129,20 +129,10 @@ export const PORTFOLIO_DATA = {
       subtitle: "All-in-one productivity app for deep focus.",
       description: "Zanshin Focus is a minimalist productivity web app that brings together a Pomodoro Timer, Task Manager, Habit Tracker, and Personal Journal alongside a distraction-free Focus Mode with ambient sounds. It helps you stay organized and consistently productive through clean, distraction-free tools designed to keep you in flow.",
       tags: ["Next.js", "Supabase", "Tailwind CSS", "TypeScript", "Zustand"],
-      image: "/images/project_zanshin.png",
+      image: "/images/project_zanshin-focus.png",
       liveUrl: "https://zanshin-focus.vercel.app/",
       githubUrl: "#",
       isLive: false
-    },
-    {
-      title: "Weather App",
-      subtitle: "Real-time weather updates",
-      description: "A weather app to get the weather information of any city in the world. It uses REST API to fetch the current weather.",
-      tags: ["Node.js", "React", "Vite", "CSS", "Rest API"],
-      image: "/images/project_weather.png",
-      liveUrl: "https://arpitneewaliya.github.io/weather_app/",
-      githubUrl: "https://github.com/arpitneewaliya/weather_app",
-      isLive: true
     }
   ] as Project[],
   blogs: [
@@ -163,6 +153,15 @@ export const PORTFOLIO_DATA = {
       platform: "Medium",
       url: "https://medium.com/@arpitneewaliya/vision-transformers-how-ai-learned-to-see-without-convolutions-35ba9cce01c4?sharedUserId=arpitneewaliya",
       readTime: "4 min read"
+    },
+    {
+      title: "What Actually Happens When You Send a Prompt to an LLM?",
+      date: "August 2026",
+      description: "Let us understand what happens when you send a prompt to an LLM.",
+      image: "/images/blog_llm.webp",
+      platform: "Medium",
+      url: "https://medium.com/@arpitneewaliya/what-actually-happens-when-you-send-a-prompt-to-an-llm-d9f8ce33108f?sharedUserId=arpitneewaliya",
+      readTime: "6 min read"
     },
     {
       title: "How I Fine-Tuned a Vision Language Model for Drone Image Understanding",
