@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arpit Neewaliya Portfolio
 
-## Getting Started
+The personal portfolio website for Arpit Neewaliya, built with Next.js App Router, React, TypeScript, Tailwind CSS, and Framer Motion.
 
-First, run the development server:
+## Requirements
+
+- Node.js 20+
+- npm
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run lint` | Run ESLint |
+| `npm run validate:portfolio` | Check portfolio links, assets, duplicate entries, and section navigation |
+| `npm run build` | Create a production build |
+| `npm run start` | Start the production server |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/` - App Router pages and global layout
+- `src/components/sections/` - Homepage and detail-page sections
+- `src/components/ui/` - Reusable UI primitives
+- `src/data/data.ts` - Single source of truth for profile, projects, skills, experience, and blog content
+- `src/lib/` - Shared utilities
+- `public/images/` - Portfolio and blog images
+- `scripts/validate-portfolio.mjs` - Dependency-free content and asset validation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Updating portfolio content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Edit [`src/data/data.ts`](./src/data/data.ts) to update profile information, social links, skills, projects, experience, or blog posts. Keep image paths relative to `public/`, for example `/images/project-name.png`, and use complete `https://` URLs for external links.
 
-## Deploy on Vercel
+The homepage uses compact section components, while `/projects` and `/experience` use detailed views backed by the same data. Update the shared data instead of duplicating content in individual components.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+After changing content, run:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run validate:portfolio
+npm run lint
+npm run build
+```
+
+## Deployment
+
+The site can be deployed to Vercel or any platform that supports Next.js production builds:
+
+```bash
+npm run build
+npm run start
+```
