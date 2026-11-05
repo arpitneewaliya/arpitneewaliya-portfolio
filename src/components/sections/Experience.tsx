@@ -1,30 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const experiences = [
-  {
-    role: "Founding Engineer",
-    company: "Monolith Digital",
-    period: "2026 — Present",
-    description: "Leading the core engineering team. Architecting modular UI systems that bridge the gap between complex data and simple user experiences.",
-    tags: ["DESIGN SYSTEMS", "REACT", "NODE.JS"],
-  },
-  {
-    role: "Full Stack Developer Intern",
-    company: "Aether Media Group",
-    period: "2024 — 2026",
-    description: "Engineered scalable motion language and transition models for high-fidelity interactive media platforms.",
-    tags: ["MOTION DESIGN", "USER EXPERIENCE"],
-  },
-  {
-    role: "Frontend Developer Intern",
-    company: "Stark Editorial Lab",
-    period: "2024-2025",
-    description: "Developed procedural UI components and frontend microservices for an architectural publication.",
-    tags: ["FRONT-END", "PROCEDURAL UI"],
-  },
-];
+import { PORTFOLIO_DATA } from "@/data/data";
 
 export function Experience() {
   return (
@@ -50,7 +27,7 @@ export function Experience() {
             {/* Timeline line */}
             <div className="absolute left-0 top-2 bottom-0 w-px bg-white/10 hidden md:block" />
             
-            {experiences.map((exp, index) => (
+            {PORTFOLIO_DATA.experiences.map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: 20 }}
@@ -67,12 +44,23 @@ export function Experience() {
                   <span className="text-sm text-gray-500 tracking-wider uppercase mt-1 md:mt-0">{exp.period}</span>
                 </div>
                 
-                <div className="text-lg text-gray-300 font-medium mb-4">{exp.company}</div>
+                {exp.companyUrl ? (
+                  <a
+                    href={exp.companyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg text-gray-300 font-medium mb-4 hover:text-white transition-colors"
+                  >
+                    {exp.company}
+                  </a>
+                ) : (
+                  <div className="text-lg text-gray-300 font-medium mb-4">{exp.company}</div>
+                )}
                 
                 <p className="text-gray-400 mb-6 leading-relaxed max-w-2xl">{exp.description}</p>
                 
                 <div className="flex gap-2 flex-wrap">
-                  {exp.tags.map(tag => (
+                  {exp.tags?.map(tag => (
                     <span key={tag} className="text-[10px] tracking-widest px-2 py-1 bg-white/5 rounded-full text-gray-400">
                       {tag}
                     </span>

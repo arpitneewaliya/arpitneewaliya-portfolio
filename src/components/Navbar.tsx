@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -23,6 +24,7 @@ function useHasMounted() {
 
 export function Navbar() {
   const mounted = useHasMounted();
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
   const { theme, setTheme } = useTheme();
@@ -68,8 +70,13 @@ export function Navbar() {
   };
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
     setIsMobileMenuOpen(false);
+
+    if (pathname !== "/") {
+      return;
+    }
+
+    e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
       const yOffset = -90;

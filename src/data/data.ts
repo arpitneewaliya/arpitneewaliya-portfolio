@@ -55,8 +55,7 @@ export const PORTFOLIO_DATA = {
     leetcode: "https://leetcode.com/u/arpitneewaliya/",
     codeforces: "https://codeforces.com/profile/arpitneewaliya",
     devto: "https://dev.to/arpitneewaliya",
-    medium: "https://medium.com/@arpitneewaliya",
-    resume: "/resume.pdf"
+    medium: "https://medium.com/@arpitneewaliya"
   },
   skills: [
     { name: "TypeScript", category: "Languages & Core", icon: "SiTypescript" },
@@ -130,8 +129,8 @@ export const PORTFOLIO_DATA = {
       description: "Zanshin Focus is a minimalist productivity web app that brings together a Pomodoro Timer, Task Manager, Habit Tracker, and Personal Journal alongside a distraction-free Focus Mode with ambient sounds. It helps you stay organized and consistently productive through clean, distraction-free tools designed to keep you in flow.",
       tags: ["Next.js", "Supabase", "Tailwind CSS", "TypeScript", "Zustand"],
       image: "/images/project_zanshin-focus.png",
-      liveUrl: "https://zanshin-focus.vercel.app/",
-      githubUrl: "#",
+      liveUrl: "https://zanshin-focus-app.vercel.app/",
+      githubUrl: "https://github.com/arpitneewaliya/zanshin-focus-app",
       isLive: false
     }
   ] as Project[],

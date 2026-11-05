@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiLeetcode as LeetcodeIcon, SiCodeforces as CodeforcesIcon } from "react-icons/si";
 import { Mail, MapPin } from "lucide-react";
+import Link from "next/link";
 import { PORTFOLIO_DATA } from "@/data/data";
 
 export function HeaderHero() {
@@ -75,6 +76,25 @@ export function HeaderHero() {
 
         {/* Quick Social & Contact Bar */}
         <div className="flex flex-wrap items-center gap-2 pt-2">
+          <Link
+            href="#projects"
+            onClick={(event) => {
+              event.preventDefault();
+              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+              window.history.pushState(null, "", "#projects");
+            }}
+            className="px-4 py-2 rounded-xl bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-white text-sm font-semibold transition-colors"
+          >
+            View Projects
+          </Link>
+
+          <a
+            href={`mailto:${PORTFOLIO_DATA.socials.email}?subject=Portfolio%20inquiry`}
+            className="px-4 py-2 rounded-xl border border-zinc-400 dark:border-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-sm font-semibold transition-colors"
+          >
+            Contact Me
+          </a>
+
           <a
             href={PORTFOLIO_DATA.socials.github}
             target="_blank"

@@ -3,32 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-
-const projects = [
-  {
-    title: "Cerebral Earth",
-    description: "A mapified news platform where you can visualize all the major events live on a world map.",
-    tags: ["Web Application", "React", "API", "2026"],
-    image: "/images/cerebral_earth.png",
-    link: "#",
-  },
-  {
-    title: "Monolith Editorial",
-    description: "A digital publication platform that celebrates architectural minimalism and clean typography.",
-    tags: ["WEB DESIGN", "DEVELOPMENT", "2023"],
-    image: "/images/project_monolith.png",
-    link: "#",
-  },
-  {
-    title: "Signal Core",
-    description: "Real-time data streaming engine optimized for high-concurrency IoT networks.",
-    tags: ["NODE.JS", "POSTGRESQL", "PERFORMANCE"],
-    image: "/images/project_signal.png",
-    link: "#",
-  },
-];
+import { PORTFOLIO_DATA } from "@/data/data";
 
 export function ProjectsGallery() {
   return (
@@ -45,7 +20,7 @@ export function ProjectsGallery() {
         </motion.div>
 
         <div className="space-y-16 sm:space-y-32">
-          {projects.map((project, index) => (
+          {PORTFOLIO_DATA.projects.map((project, index) => (
             <div key={index} className="grid md:grid-cols-12 gap-6 sm:gap-8 items-center group">
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -82,15 +57,27 @@ export function ProjectsGallery() {
                   <h3 className="text-2xl sm:text-3xl font-bold">{project.title}</h3>
                   <p className="text-gray-400 leading-relaxed text-base sm:text-lg">{project.description}</p>
                   
-                  <div className="pt-4 flex items-center space-x-6">
-                    <Link href={project.link}>
-                      <Button className="rounded-full bg-white text-black hover:bg-gray-200">
+                  <div className="pt-4 flex items-center gap-6">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-gray-200 transition-colors"
+                      >
                         Live Demo
-                      </Button>
-                    </Link>
-                    <Link href={project.link} className="flex items-center text-sm font-medium hover:text-gray-300 transition-colors">
-                      Source Code <ArrowUpRight className="ml-1 w-4 h-4" />
-                    </Link>
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-sm font-medium hover:text-gray-300 transition-colors"
+                      >
+                        Source Code <ArrowUpRight className="ml-1 w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
