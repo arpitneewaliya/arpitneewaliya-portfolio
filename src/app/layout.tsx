@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Arpit Neewaliya — Full Stack Engineer",
+  title: "Arpit Neewaliya - Portfolio",
   description: "Personal portfolio of Arpit Neewaliya. Full-stack engineer crafting high-performance digital experiences with clean design and smooth animations.",
 };
 
