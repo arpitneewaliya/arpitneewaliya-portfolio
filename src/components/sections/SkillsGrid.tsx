@@ -1,17 +1,17 @@
 "use client";
 
 import { useState, ComponentType } from "react";
-import { motion } from "framer-motion";
-import { 
-  SiReact, 
-  SiNextdotjs, 
-  SiTypescript, 
-  SiTailwindcss, 
-  SiNodedotjs, 
-  SiExpress, 
-  SiPostgresql, 
-  SiMongodb, 
-  SiClaude, 
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiPostgresql,
+  SiMongodb,
+  SiClaude,
   SiJavascript,
   SiPython,
   SiVite,
@@ -21,12 +21,23 @@ import {
   SiKaggle,
   SiJupyter,
   SiVercel,
-  SiPostman
+  SiPostman,
 } from "react-icons/si";
-import { FaAws, FaDocker, FaLinux, FaGitAlt, FaJava, FaHtml5, FaCss3Alt } from "react-icons/fa";
+import {
+  FaAws,
+  FaDocker,
+  FaLinux,
+  FaGitAlt,
+  FaJava,
+  FaHtml5,
+  FaCss3Alt,
+} from "react-icons/fa";
 import { PORTFOLIO_DATA } from "@/data/data";
 
-const iconMap: Record<string, ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+const iconMap: Record<
+  string,
+  ComponentType<{ className?: string; style?: React.CSSProperties }>
+> = {
   SiReact: SiReact,
   RiNextjsFill: SiNextdotjs,
   SiTypescript: SiTypescript,
@@ -58,7 +69,7 @@ const iconMap: Record<string, ComponentType<{ className?: string; style?: React.
 const brandColors: Record<string, string> = {
   SiReact: "#61DAFB",
   SiTypescript: "#3178C6",
-  IoLogoJavascript: "#F7DF1E",
+  IoLogoJavascript: "#EAB308",
   SiPython: "#3776AB",
   FaJava: "#E76F00",
   SiTailwindcss: "#06B6D4",
@@ -71,27 +82,27 @@ const brandColors: Record<string, string> = {
   SiSupabase: "#3ECF8E",
   FaAws: "#FF9900",
   FaDocker: "#2496ED",
-  FaLinux: "#FCC624",
+  FaLinux: "#EAB308",
   FaGitAlt: "#F05032",
   SiClaude: "#D97706",
-  SiHuggingface: "#FFD21E",
+  SiHuggingface: "#F59E0B",
   SiKaggle: "#20BEFF",
   SiJupyter: "#F37626",
   SiPostman: "#FF6C37",
 };
 
+const categories = [
+  "All",
+  "Languages & Core",
+  "Frontend",
+  "Backend",
+  "AI & Data Science",
+  "DevOps & Tools",
+] as const;
+
 export function SkillsGrid() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<string>("All");
-
-  const categories = [
-    "All",
-    "Languages & Core",
-    "Frontend",
-    "Backend",
-    "AI & Data Science",
-    "DevOps & Tools",
-  ] as const;
 
   const filteredSkills =
     activeTab === "All"
@@ -99,77 +110,97 @@ export function SkillsGrid() {
       : PORTFOLIO_DATA.skills.filter((skill) => skill.category === activeTab);
 
   return (
-    <section id="skills" className="py-8 border-b border-dashed border-zinc-300 dark:border-zinc-800 scroll-mt-24">
+    <section id="skills" className="py-10 sm:py-12 scroll-mt-24">
       <div className="flex flex-col gap-6">
-        
-        {/* Header & Category Filter Tabs */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-            Skills & Technologies
-          </h2>
-
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-1.5">
-            {categories.map((cat) => {
-              const isActive = activeTab === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setActiveTab(cat)}
-                  type="button"
-                  className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
-                    isActive
-                      ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 shadow-sm font-semibold"
-                      : "bg-zinc-200/60 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-300/60 dark:hover:bg-zinc-700/60"
-                  }`}
-                >
-                  {cat}
-                </button>
-              );
-            })}
+        {/* Section Header */}
+        <div className="flex items-baseline justify-between gap-4">
+          <div className="flex items-baseline gap-3">
+            <span className="font-mono text-xs text-zinc-400 dark:text-zinc-500">
+              02
+            </span>
+            <h2 className="text-lg sm:text-xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+              Technical Stack
+            </h2>
           </div>
+          <span className="text-xs text-zinc-400 dark:text-zinc-500 font-mono">
+            {filteredSkills.length} / TOOLS
+          </span>
         </div>
 
-        {/* Skill Pills Grid */}
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.25 }}
-          className="flex flex-wrap gap-2 pt-1"
-        >
-          {filteredSkills.map((skill, idx) => {
-            const IconComponent = iconMap[skill.icon] || SiReact;
-            const brandColor = brandColors[skill.icon];
-            const isHovered = hoveredSkill === skill.name;
-
+        {/* Gliding Category Filter Bar */}
+        <div className="flex flex-wrap items-center gap-1 p-1 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/70 dark:bg-zinc-900/50 w-fit">
+          {categories.map((cat) => {
+            const isActive = activeTab === cat;
             return (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.2, delay: idx * 0.02 }}
-                onMouseEnter={() => setHoveredSkill(skill.name)}
-                onMouseLeave={() => setHoveredSkill(null)}
-                className="rounded-lg border border-dashed border-zinc-300 dark:border-zinc-800 bg-zinc-200/80 dark:bg-zinc-900/60 hover:bg-zinc-300 dark:hover:bg-zinc-800 transition-all cursor-default flex items-center gap-2 px-3 py-1.5 text-xs text-zinc-900 dark:text-zinc-100 select-none group font-medium"
+              <button
+                key={cat}
+                onClick={() => setActiveTab(cat)}
+                type="button"
+                className={`relative px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer select-none ${
+                  isActive
+                    ? "text-zinc-950 dark:text-zinc-50"
+                    : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
+                }`}
               >
-                <IconComponent
-                  className={`size-4 shrink-0 transition-colors duration-200 ${
-                    isHovered
-                      ? brandColor
-                        ? ""
-                        : "text-zinc-950 dark:text-white"
-                      : "text-zinc-700 dark:text-zinc-300"
-                  }`}
-                  style={isHovered && brandColor ? { color: brandColor } : undefined}
-                />
-                <span>{skill.name}</span>
-              </motion.div>
+                {isActive && (
+                  <motion.span
+                    layoutId="skillCategoryPill"
+                    className="absolute inset-0 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200/80 dark:border-zinc-700/80 shadow-2xs -z-10"
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 32,
+                    }}
+                  />
+                )}
+                <span className="relative z-10">{cat}</span>
+              </button>
             );
           })}
-        </motion.div>
+        </div>
 
+        {/* Morphing Skill Chips */}
+        <motion.div layout className="flex flex-wrap gap-2 pt-1 min-h-[44px]">
+          <AnimatePresence mode="popLayout">
+            {filteredSkills.map((skill) => {
+              const IconComponent = iconMap[skill.icon] || SiReact;
+              const brandColor = brandColors[skill.icon];
+              const isHovered = hoveredSkill === skill.name;
+
+              return (
+                <motion.div
+                  layout
+                  key={skill.name}
+                  initial={{ opacity: 0, scale: 0.94 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.94 }}
+                  transition={{
+                    opacity: { duration: 0.16 },
+                    scale: { duration: 0.16 },
+                    layout: { type: "spring", stiffness: 420, damping: 34 },
+                  }}
+                  onMouseEnter={() => setHoveredSkill(skill.name)}
+                  onMouseLeave={() => setHoveredSkill(null)}
+                  className="rounded-lg border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800/70 transition-colors cursor-default flex items-center gap-2 px-3 py-1.5 text-xs text-zinc-800 dark:text-zinc-200 select-none font-medium"
+                >
+                  <IconComponent
+                    className={`size-3.5 shrink-0 transition-colors duration-150 ${
+                      isHovered
+                        ? brandColor
+                          ? ""
+                          : "text-zinc-950 dark:text-white"
+                        : "text-zinc-500 dark:text-zinc-400"
+                    }`}
+                    style={
+                      isHovered && brandColor ? { color: brandColor } : undefined
+                    }
+                  />
+                  <span>{skill.name}</span>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );
