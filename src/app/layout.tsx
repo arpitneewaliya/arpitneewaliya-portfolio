@@ -16,9 +16,43 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Arpit Neewaliya - Portfolio",
-  description: "Personal portfolio of Arpit Neewaliya. Full-stack engineer crafting high-performance digital experiences with clean design and smooth animations.",
+  description:
+    "Personal portfolio of Arpit Neewaliya. Full-stack engineer crafting high-performance digital experiences with clean design and smooth animations.",
+  openGraph: {
+    title: "Arpit Neewaliya - Portfolio",
+    description:
+      "Personal portfolio of Arpit Neewaliya. Full-stack engineer crafting high-performance digital experiences with clean design and smooth animations.",
+    url: "/",
+    siteName: "Arpit Neewaliya",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1672,
+        height: 941,
+        alt: "Arpit Neewaliya - Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arpit Neewaliya - Portfolio",
+    description:
+      "Personal portfolio of Arpit Neewaliya. Full-stack engineer crafting high-performance digital experiences with clean design and smooth animations.",
+    images: ["/images/og-image.png"],
+  },
 };
 
 export default function RootLayout({
