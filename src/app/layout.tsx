@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { GridSmallBackgroundDemo } from "@/components/GridSmallBackgroundDemo";
+import { PORTFOLIO_DATA } from "@/data/data";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -16,16 +18,25 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000");
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: PORTFOLIO_DATA.name,
+  url: SITE_URL,
+  description: PORTFOLIO_DATA.bio[0],
+  sameAs: [
+    PORTFOLIO_DATA.socials.github,
+    PORTFOLIO_DATA.socials.linkedin,
+    PORTFOLIO_DATA.socials.twitter,
+    PORTFOLIO_DATA.socials.leetcode,
+    PORTFOLIO_DATA.socials.codeforces,
+    PORTFOLIO_DATA.socials.devto,
+    PORTFOLIO_DATA.socials.medium,
+  ],
+};
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: "Arpit Neewaliya - Portfolio",
   description:
     "Personal portfolio of Arpit Neewaliya. Full-stack engineer crafting high-performance digital experiences with clean design and smooth animations.",
@@ -68,6 +79,12 @@ export default function RootLayout({
       style={{ scrollBehavior: "smooth" }}
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground overflow-x-hidden selection:bg-zinc-700 selection:text-white transition-colors duration-300">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <GridSmallBackgroundDemo />
           

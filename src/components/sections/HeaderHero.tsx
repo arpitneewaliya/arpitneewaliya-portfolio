@@ -57,7 +57,7 @@ export function HeaderHero() {
   return (
     <section id="home" className="pt-8 pb-10 sm:pt-12 sm:pb-12 scroll-mt-24">
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         className="flex flex-col gap-7"

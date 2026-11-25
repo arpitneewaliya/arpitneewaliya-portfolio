@@ -136,11 +136,10 @@ export function SkillsGrid() {
                 key={cat}
                 onClick={() => setActiveTab(cat)}
                 type="button"
-                className={`relative px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer select-none ${
-                  isActive
+                className={`relative px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer select-none ${isActive
                     ? "text-zinc-950 dark:text-zinc-50"
                     : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
-                }`}
+                  }`}
               >
                 {isActive && (
                   <motion.span
@@ -161,7 +160,7 @@ export function SkillsGrid() {
 
         {/* Morphing Skill Chips */}
         <motion.div layout className="flex flex-wrap gap-2 pt-1 min-h-[44px]">
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence initial={false} mode="popLayout">
             {filteredSkills.map((skill) => {
               const IconComponent = iconMap[skill.icon] || SiReact;
               const brandColor = brandColors[skill.icon];
@@ -184,13 +183,12 @@ export function SkillsGrid() {
                   className="rounded-lg border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800/70 transition-colors cursor-default flex items-center gap-2 px-3 py-1.5 text-xs text-zinc-800 dark:text-zinc-200 select-none font-medium"
                 >
                   <IconComponent
-                    className={`size-3.5 shrink-0 transition-colors duration-150 ${
-                      isHovered
+                    className={`size-3.5 shrink-0 transition-colors duration-150 ${isHovered
                         ? brandColor
                           ? ""
                           : "text-zinc-950 dark:text-white"
                         : "text-zinc-500 dark:text-zinc-400"
-                    }`}
+                      }`}
                     style={
                       isHovered && brandColor ? { color: brandColor } : undefined
                     }

@@ -33,7 +33,7 @@ export function Blog() {
               href={post.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 10 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{
